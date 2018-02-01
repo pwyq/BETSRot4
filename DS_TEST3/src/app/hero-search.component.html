@@ -1,0 +1,17 @@
+<div id="search-component">
+    <h4>Hero Search</h4>
+    <!--
+        `keyup` - The key is released
+        `keydown` - The key is on its way down
+        `keypress` - The key is pressed down
+    -->
+    <!--As the user types in the search box,
+        a `keyup` event binding calls the component's `search()` method with the new search box value-->
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+    <div>
+        <div *ngFor="let hero of heroes | async"
+        (click)="gotoDetail(hero)" class="search-result" >
+            {{hero.name}}
+        </div>
+    </div>
+</div>
